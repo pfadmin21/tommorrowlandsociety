@@ -240,7 +240,7 @@
     .reason-list{display:grid;gap:9px;margin-top:20px}
     .reason{font-size:.75rem;color:#626a63;padding-left:17px;position:relative}.reason::before{content:'•';position:absolute;left:0;color:var(--bronze)}
 
-    .modal{position:fixed;inset:0;z-index:100;background:rgba(4,12,8,.78);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal{position:fixed;inset:0;z-index:120;background:rgba(4,12,8,.78);display:none;align-items:center;justify-content:center;padding:20px}
     .modal.open{display:flex}
     .modal-card{width:min(900px,100%);max-height:92vh;overflow:auto;background:var(--paper);box-shadow:0 30px 90px rgba(0,0,0,.35)}
     .modal-head{display:flex;justify-content:space-between;gap:20px;padding:28px 32px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:2}
@@ -285,7 +285,17 @@
     .africa-real-map .country:not(.highlight):hover{fill:#203a2b}
     .map-marker{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;border:2px solid #e4c49c;background:#a97743 url('tomorrowland-mark.png') center/cover;color:transparent;font-size:0;cursor:pointer;box-shadow:0 0 0 7px rgba(169,119,67,.13);z-index:3;padding:0}
     .map-marker.active{border-color:var(--ivory);box-shadow:0 0 0 10px rgba(245,241,232,.16)}
-    .map-label{position:absolute;transform:translate(-50%,15px);font-family:"Roboto Mono",monospace;font-size:.46rem;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap;pointer-events:none}
+    .map-label{display:none}
+
+    .svg-market-layer{pointer-events:none}
+    .svg-market-marker{pointer-events:auto;cursor:pointer;outline:none}
+    .svg-market-marker .marker-halo{fill:rgba(169,119,67,.16);stroke:none;transition:.2s}
+    .svg-market-marker .marker-core{fill:var(--bronze);stroke:#e4c49c;stroke-width:2;transition:.2s}
+    .svg-market-marker .marker-dot{fill:var(--ivory);transition:.2s}
+    .svg-market-marker text{font-family:"Roboto Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.04em;fill:rgba(255,255,255,.9);paint-order:stroke;stroke:#0b1c15;stroke-width:3px;stroke-linejoin:round}
+    .svg-market-marker:hover .marker-halo,.svg-market-marker:focus .marker-halo,.svg-market-marker.active .marker-halo{fill:rgba(245,241,232,.22)}
+    .svg-market-marker:hover .marker-core,.svg-market-marker:focus .marker-core,.svg-market-marker.active .marker-core{fill:#c18a50;stroke:var(--ivory);stroke-width:2.6}
+    .svg-market-marker:focus-visible .marker-halo{stroke:var(--ivory);stroke-width:2}
     .intel-panel{background:var(--ivory);color:var(--ink);padding:34px;display:flex;flex-direction:column}
     .intel-panel h3{font-size:2.5rem;margin-top:14px}
     .intel-summary{font-size:.88rem;color:#626a63;margin-top:14px}
@@ -316,6 +326,14 @@
     @media(max-width:980px){.intelligence-head,.intel-grid{grid-template-columns:1fr;gap:54px}.africa-map{min-height:420px}}
     @media(max-width:640px){.africa-map{min-height:360px}.intel-panel{padding:26px}}
 
+
+    .founding-compliance{margin-top:18px;background:var(--ivory);border:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:28px 30px}
+    .founding-compliance-copy{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+    .compliance-mark{width:42px;height:42px;border:1px solid var(--bronze);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Roboto Mono",monospace;font-size:.58rem;color:var(--bronze);font-weight:600}
+    .founding-compliance h4{font-family:"Instrument Serif",serif;font-size:1.65rem;font-weight:400;line-height:1.05}
+    .founding-compliance p{font-size:.79rem;color:#626a63;margin-top:8px;max-width:720px}
+    .founding-compliance .btn{background:var(--green-deep);color:white;border-color:var(--green-deep);white-space:nowrap}
+    @media(max-width:760px){.founding-compliance{grid-template-columns:1fr}.founding-compliance .btn{width:100%}}
     @media(max-width:980px){
       .hero-grid,.case-grid,.solution-grid,.provenance-head,.capital-grid,.pathway-head,.builder-grid,.split-head,.partner-grid,.commercial-grid,.governance-grid{grid-template-columns:1fr;gap:54px}
       .hero-aside{max-width:520px}.problem-grid,.service-grid{grid-template-columns:1fr 1fr}.problem:nth-child(2),.service:nth-child(2){border-right:0}.gallery{grid-template-columns:1fr}.amount-panel{position:relative;top:auto}.roadmap-grid{grid-template-columns:1fr}.phase,.phase:not(:first-child){padding:30px 0;border-right:0;border-bottom:1px solid var(--line)}
@@ -482,13 +500,35 @@
 <path class="country tone-1" data-name="Uganda" d="M425.1,347.3 L424.6,347.3 L424.0,347.4 L423.8,347.6 L423.5,348.1 L422.4,349.2 L422.2,349.6 L421.4,350.1 L420.6,350.2 L420.3,349.4 L420.1,349.3 L418.5,349.7 L418.2,349.7 L418.5,349.4 L418.2,347.6 L418.2,346.6 L418.5,346.0 L418.5,344.6 L418.7,343.4 L418.7,342.7 L419.0,340.2 L419.3,339.8 L419.3,338.7 L419.5,338.3 L419.8,338.2 L420.9,335.8 L420.9,333.6 L421.9,333.1 L422.7,332.3 L423.2,331.3 L423.8,330.6 L425.1,330.3 L428.3,327.1 L430.7,324.4 L430.7,324.0 L430.9,323.6 L430.7,323.2 L430.1,323.0 L430.1,322.7 L429.9,322.6 L429.3,322.6 L428.5,321.7 L427.5,321.7 L426.7,321.3 L426.9,320.8 L427.2,319.6 L427.7,318.5 L427.7,317.9 L426.9,317.1 L427.2,316.1 L427.5,315.3 L428.0,314.3 L428.0,313.9 L427.7,313.8 L427.7,313.4 L428.3,312.6 L429.1,312.0 L429.9,311.6 L430.4,311.6 L431.5,311.9 L432.2,312.4 L432.8,312.4 L433.3,312.2 L434.6,311.5 L435.4,312.1 L435.7,312.9 L436.5,313.3 L437.3,313.4 L437.5,312.9 L438.6,312.1 L440.2,311.9 L441.3,311.7 L441.5,311.6 L442.3,311.5 L443.4,310.8 L444.7,311.6 L446.0,311.7 L447.1,311.7 L447.6,311.6 L447.6,311.3 L448.9,310.1 L450.8,308.4 L451.9,310.8 L452.1,311.1 L452.1,311.3 L452.9,312.0 L453.7,312.2 L454.2,312.5 L454.2,312.9 L453.7,314.3 L454.0,314.7 L454.2,316.1 L454.8,316.5 L455.3,317.9 L456.1,318.5 L456.4,318.6 L456.9,320.2 L457.2,320.4 L457.7,321.2 L457.4,321.6 L458.2,325.7 L458.2,326.4 L458.0,326.8 L458.0,327.3 L457.4,328.0 L456.9,329.0 L456.6,329.2 L456.9,330.0 L456.9,330.3 L456.4,330.5 L455.6,330.6 L454.8,331.3 L454.5,331.8 L454.0,333.1 L452.9,334.1 L452.9,334.3 L452.1,335.0 L451.6,335.8 L451.6,336.6 L451.1,337.3 L450.5,338.2 L450.3,339.6 L450.3,342.4 L450.3,346.7 L445.5,346.7 L441.5,346.7 L438.9,346.7 L434.9,346.7 L432.2,346.7 L427.5,346.7 L426.9,346.9 L426.4,347.1 L425.9,347.3 L425.1,347.3 Z"><title>Uganda</title></path>
 <path class="country highlight" data-country="southafrica" data-name="South Africa" d="M430.9,504.3 L430.9,504.8 L431.5,505.9 L432.0,507.4 L432.2,508.8 L432.8,510.9 L432.8,512.3 L433.3,512.8 L433.8,513.7 L433.8,514.2 L434.6,515.3 L435.2,516.3 L435.4,517.9 L436.0,518.9 L436.0,524.0 L436.0,528.1 L435.7,529.1 L435.7,530.5 L435.2,530.7 L433.6,529.9 L431.7,528.9 L431.2,529.0 L430.4,529.6 L429.3,530.7 L429.1,531.6 L428.5,532.5 L427.5,533.9 L427.2,534.1 L427.2,536.4 L428.0,536.7 L428.3,537.6 L429.3,539.0 L430.9,540.0 L432.2,540.4 L434.4,540.5 L436.0,540.4 L435.7,539.5 L436.0,537.9 L436.2,536.8 L437.0,537.1 L437.5,536.9 L438.9,537.2 L440.5,537.2 L441.8,537.1 L442.6,537.1 L442.3,538.7 L441.3,541.4 L441.0,542.7 L440.2,547.0 L438.3,550.1 L436.5,551.8 L435.4,552.3 L434.6,552.4 L431.2,555.7 L430.1,557.2 L429.1,559.6 L428.0,560.8 L426.4,563.5 L424.8,565.6 L423.5,567.5 L421.1,570.0 L420.3,570.8 L419.5,571.1 L417.7,572.6 L415.0,575.0 L412.9,577.2 L410.0,579.6 L408.4,580.6 L405.7,582.8 L404.9,583.1 L402.0,585.0 L399.9,586.1 L396.5,587.5 L395.1,587.9 L392.0,587.5 L390.6,587.8 L389.3,588.6 L389.3,589.8 L388.3,590.0 L385.9,589.5 L384.5,589.6 L384.0,590.1 L383.5,591.0 L381.6,591.0 L378.7,590.2 L374.2,589.6 L372.6,590.2 L371.8,590.4 L369.4,590.2 L367.8,589.8 L366.5,589.8 L365.7,590.1 L364.4,590.2 L361.0,592.5 L359.4,592.5 L357.8,592.8 L355.6,592.4 L354.3,592.5 L353.5,592.9 L351.7,593.2 L351.1,593.4 L348.0,595.5 L347.2,595.5 L346.6,595.3 L345.0,595.2 L343.5,594.2 L342.9,593.9 L342.9,593.3 L342.4,592.8 L341.6,592.8 L341.1,592.3 L340.0,592.3 L339.2,592.4 L339.2,591.1 L339.0,590.5 L338.4,590.2 L337.1,590.4 L336.8,590.5 L336.6,591.0 L336.6,592.3 L336.0,591.9 L335.5,590.2 L335.8,589.3 L336.6,588.9 L336.6,588.2 L335.5,586.1 L335.0,585.5 L334.2,585.0 L333.7,583.8 L333.1,583.5 L332.9,582.7 L332.3,582.0 L332.1,581.2 L332.3,580.5 L332.9,580.3 L333.4,580.6 L333.9,580.5 L335.0,579.7 L335.5,578.7 L335.5,575.9 L334.7,573.1 L332.6,570.4 L330.7,567.7 L328.3,563.5 L327.0,561.0 L325.4,555.8 L323.8,553.0 L322.0,550.2 L321.7,550.1 L322.0,549.7 L323.6,548.9 L323.8,548.9 L324.1,548.4 L324.1,548.0 L324.6,547.2 L325.2,546.0 L326.2,545.7 L326.8,546.1 L327.3,547.0 L327.6,547.3 L328.1,547.3 L328.3,547.5 L328.6,548.2 L328.6,548.6 L328.3,548.8 L328.3,549.2 L328.9,550.1 L329.1,550.7 L331.0,551.2 L332.1,551.2 L332.9,551.5 L333.9,552.0 L335.5,552.1 L337.6,551.9 L339.2,552.0 L340.5,552.4 L341.6,552.5 L342.4,552.1 L342.7,551.8 L342.4,551.2 L342.7,551.0 L343.5,550.9 L344.0,550.5 L344.5,549.8 L345.3,549.2 L346.9,548.8 L347.7,548.8 L347.7,544.6 L347.7,541.3 L347.7,537.9 L347.7,534.8 L347.7,531.4 L347.7,528.2 L347.7,524.9 L347.7,521.8 L348.0,522.1 L350.3,523.6 L350.9,524.5 L351.4,525.0 L352.2,527.1 L353.0,528.9 L353.8,530.2 L353.8,532.1 L353.5,532.7 L352.5,534.1 L352.5,536.3 L353.0,536.9 L353.3,537.1 L354.3,536.8 L355.6,537.1 L358.6,536.9 L358.8,537.1 L360.4,537.1 L360.7,536.8 L361.0,536.0 L361.2,535.8 L362.5,535.5 L363.3,535.1 L364.1,533.7 L366.0,532.5 L367.0,531.8 L367.3,531.3 L367.8,529.8 L368.6,527.9 L368.9,526.8 L369.4,526.2 L370.0,525.8 L371.8,525.4 L372.9,525.6 L373.7,526.1 L377.1,528.1 L378.7,528.1 L379.8,528.9 L381.4,529.3 L382.7,529.5 L383.7,529.5 L384.5,529.0 L386.1,529.0 L388.0,528.7 L389.0,528.0 L389.6,526.7 L389.8,525.7 L390.4,524.5 L390.9,523.0 L391.2,521.8 L391.4,521.6 L393.0,521.1 L395.4,520.4 L395.7,519.9 L396.5,519.0 L398.1,517.9 L399.1,514.3 L399.9,513.0 L400.4,512.6 L401.2,512.4 L401.8,511.9 L402.3,511.6 L403.1,511.5 L403.6,511.1 L403.6,510.6 L404.2,510.3 L404.9,510.2 L404.9,509.8 L405.2,509.6 L406.0,509.3 L406.3,508.7 L406.8,507.8 L408.4,506.5 L409.5,505.7 L410.8,505.6 L411.8,505.4 L412.9,505.0 L413.7,504.3 L414.2,503.4 L415.0,502.9 L416.9,502.8 L419.0,502.4 L420.9,502.7 L423.0,503.6 L424.8,503.8 L426.7,503.6 L428.3,503.6 L429.3,503.7 L430.4,504.0 L430.9,504.3 Z M404.7,552.5 L403.6,553.9 L403.4,554.7 L402.8,555.1 L402.6,555.6 L401.5,556.7 L399.9,557.5 L399.6,557.8 L399.9,558.4 L400.4,559.0 L400.7,559.8 L402.0,561.5 L402.0,562.4 L402.3,562.6 L403.1,563.0 L403.6,563.8 L404.2,564.3 L404.9,564.7 L406.8,565.0 L407.1,564.9 L407.6,564.2 L408.9,561.9 L409.7,561.3 L410.5,561.2 L411.6,561.2 L412.1,561.1 L414.0,560.3 L414.8,559.7 L415.0,558.8 L415.0,558.0 L415.6,557.8 L416.3,557.1 L416.9,555.2 L416.9,554.6 L416.3,553.5 L416.1,553.5 L415.3,553.2 L414.5,552.5 L413.7,552.0 L412.9,551.2 L412.6,551.1 L411.3,549.8 L410.2,550.1 L408.4,550.7 L407.3,551.2 L406.5,552.0 L405.5,552.3 L404.7,552.5 Z"><title>South Africa</title></path>
 <path class="country tone-0" data-name="Zambia" d="M445.0,442.6 L440.2,444.1 L438.1,444.9 L436.5,445.3 L436.0,445.5 L433.3,446.4 L432.8,446.7 L431.2,447.2 L429.9,447.6 L428.3,448.0 L426.4,448.5 L425.4,448.9 L424.8,449.1 L423.0,449.9 L423.0,450.4 L423.2,451.2 L423.8,451.9 L424.0,452.4 L424.3,453.6 L424.3,454.6 L419.5,454.6 L417.7,455.0 L416.1,455.5 L414.5,456.5 L414.0,456.8 L413.2,457.4 L412.9,458.2 L412.9,460.4 L412.4,461.1 L409.7,462.0 L407.9,462.9 L406.3,463.8 L404.9,465.0 L404.2,466.5 L402.6,468.3 L401.0,470.0 L399.6,471.6 L397.8,472.3 L396.2,472.1 L394.3,471.4 L393.0,471.2 L392.0,471.7 L390.9,471.6 L390.1,470.8 L389.3,470.6 L388.8,470.8 L388.0,470.8 L386.7,470.5 L385.3,469.2 L384.0,468.5 L382.7,468.4 L379.2,468.2 L379.0,468.2 L377.6,468.4 L375.8,468.7 L374.2,468.9 L372.6,469.3 L371.3,468.0 L369.7,466.6 L367.8,465.1 L366.5,463.9 L366.0,463.2 L364.9,462.3 L363.6,461.6 L362.8,459.1 L362.3,456.9 L362.3,452.8 L362.3,450.4 L362.3,445.7 L362.3,440.9 L362.3,435.2 L368.1,435.2 L372.3,435.2 L376.1,435.2 L376.6,435.1 L377.1,435.1 L377.1,434.8 L376.3,433.7 L376.3,433.3 L376.9,431.7 L377.1,430.8 L377.4,430.3 L376.9,428.7 L377.1,427.6 L377.1,424.7 L377.4,424.2 L377.4,423.7 L377.6,423.4 L377.6,423.2 L377.4,422.7 L377.4,421.8 L377.1,420.4 L377.1,419.5 L377.9,419.6 L378.2,420.1 L378.2,420.6 L378.7,420.6 L379.5,420.9 L380.0,421.4 L380.3,422.3 L379.8,423.2 L380.0,423.4 L380.8,423.7 L381.1,423.7 L382.2,423.0 L383.7,422.7 L385.1,422.3 L386.1,422.2 L386.7,422.0 L386.9,422.2 L386.7,422.8 L386.7,423.4 L386.9,424.5 L387.2,425.0 L388.5,426.0 L389.3,425.9 L390.9,426.5 L391.4,426.8 L392.2,427.0 L392.8,427.0 L394.6,427.3 L395.1,427.4 L396.5,427.5 L397.3,427.6 L398.6,427.4 L399.1,427.0 L399.1,426.5 L399.6,425.3 L399.6,425.0 L400.2,424.7 L400.7,424.8 L401.2,426.1 L402.6,427.4 L402.8,428.3 L403.4,429.2 L403.6,429.4 L404.2,429.7 L404.9,429.8 L405.7,429.8 L407.3,430.5 L408.4,431.0 L409.5,431.4 L409.7,431.6 L410.2,432.4 L410.5,433.3 L410.8,433.9 L411.6,434.0 L412.1,434.6 L413.2,436.0 L413.7,437.4 L414.2,437.9 L415.0,438.0 L415.6,438.0 L416.1,437.9 L417.7,437.1 L418.5,437.0 L418.7,437.4 L418.7,437.9 L419.5,438.5 L419.8,438.4 L420.1,438.0 L420.1,433.9 L420.1,428.9 L419.5,428.9 L419.3,429.2 L418.2,429.3 L417.7,429.7 L417.7,430.8 L417.1,431.0 L416.6,430.7 L415.6,430.5 L414.5,430.3 L414.0,429.7 L412.4,428.2 L411.0,427.1 L410.2,426.4 L409.7,425.0 L409.5,424.6 L409.5,423.9 L410.2,421.3 L410.5,419.9 L410.8,419.0 L411.3,417.9 L411.6,417.0 L411.3,416.0 L411.3,411.8 L410.8,409.4 L409.7,407.7 L409.7,407.3 L411.8,405.8 L412.6,404.9 L413.2,404.1 L413.4,403.5 L413.7,402.6 L413.4,401.8 L414.0,401.7 L415.6,401.4 L417.7,401.2 L419.8,400.8 L421.9,400.6 L423.8,400.2 L425.6,399.9 L426.9,399.8 L427.2,400.3 L427.5,401.2 L428.0,401.8 L428.5,402.3 L429.3,402.9 L431.5,402.7 L432.2,403.1 L432.8,403.6 L432.8,404.3 L433.8,405.0 L434.4,405.0 L434.9,404.9 L435.7,405.3 L435.7,406.0 L436.5,406.2 L437.0,406.2 L437.8,406.6 L439.4,406.8 L439.7,407.2 L440.7,407.7 L441.8,408.1 L442.6,408.5 L442.9,408.7 L442.9,408.9 L443.4,409.5 L443.4,410.3 L444.2,410.4 L444.2,410.1 L444.7,410.1 L445.0,410.3 L445.0,410.6 L445.5,411.3 L446.0,412.1 L446.0,412.7 L445.8,413.3 L446.6,414.0 L447.4,414.7 L447.6,415.6 L447.6,415.9 L448.2,416.7 L448.4,417.2 L448.4,417.4 L446.8,418.8 L446.6,419.0 L446.0,419.0 L445.5,419.6 L446.0,421.0 L446.3,421.5 L446.0,422.3 L445.5,423.4 L445.2,423.4 L445.2,424.3 L445.5,424.7 L445.8,424.8 L445.8,426.9 L445.5,428.5 L446.0,430.1 L446.3,430.2 L447.1,430.2 L447.4,430.3 L446.8,431.1 L446.6,431.4 L445.2,431.9 L443.6,432.4 L443.4,432.9 L443.1,433.7 L443.4,434.2 L443.6,434.4 L443.4,435.1 L443.4,436.7 L443.1,437.0 L442.9,437.7 L442.3,438.5 L441.8,439.2 L441.0,439.4 L441.0,439.7 L441.8,439.9 L442.1,440.2 L442.1,440.6 L441.8,440.7 L442.1,440.9 L442.6,441.2 L443.4,442.3 L443.4,442.6 L443.9,442.6 L444.2,442.2 L444.7,442.1 L445.0,442.6 Z"><title>Zambia</title></path><path class="country tone-1" data-name="Zimbabwe" d="M416.9,502.8 L416.3,502.5 L415.8,501.9 L414.8,501.9 L414.2,501.3 L414.2,500.9 L414.5,500.0 L414.0,499.7 L412.1,499.2 L410.5,498.8 L408.1,498.3 L407.1,498.2 L406.8,498.1 L406.0,496.7 L405.5,495.9 L404.4,494.9 L404.4,490.4 L403.9,490.3 L402.8,490.1 L401.5,490.1 L401.5,489.5 L401.2,488.4 L401.0,487.7 L400.7,487.3 L399.9,487.1 L398.9,486.6 L397.0,485.8 L395.4,484.8 L393.8,483.5 L393.3,483.2 L392.5,482.0 L391.7,479.9 L391.7,479.2 L391.4,478.9 L390.6,477.8 L390.4,477.2 L390.4,476.7 L388.8,475.2 L388.3,474.6 L388.0,473.7 L387.2,472.6 L386.7,472.3 L386.4,471.7 L386.4,470.7 L386.7,470.5 L388.0,470.8 L388.8,470.8 L389.3,470.6 L390.1,470.8 L390.9,471.6 L392.0,471.7 L393.0,471.2 L394.3,471.4 L396.2,472.1 L397.8,472.3 L399.6,471.6 L401.0,470.0 L402.6,468.3 L404.2,466.5 L404.9,465.0 L406.3,463.8 L407.9,462.9 L409.7,462.0 L412.4,461.1 L412.9,460.4 L412.9,458.2 L413.2,457.4 L414.0,456.8 L414.5,456.5 L416.1,455.5 L417.7,455.0 L419.5,454.6 L424.3,454.6 L424.3,455.8 L424.6,457.2 L426.2,457.2 L430.7,457.4 L432.0,458.3 L432.5,458.6 L433.8,458.8 L435.7,460.4 L438.1,460.5 L440.7,461.5 L441.5,462.2 L442.9,462.4 L443.1,462.4 L443.1,462.9 L442.6,463.7 L442.6,464.8 L443.4,466.4 L443.4,467.8 L443.1,470.2 L443.1,472.5 L443.4,473.4 L443.4,474.6 L442.9,476.6 L442.9,477.0 L442.6,477.2 L442.6,477.5 L441.5,478.0 L441.3,478.3 L441.3,478.9 L441.5,479.3 L442.3,479.7 L442.3,481.1 L441.8,482.1 L442.3,483.4 L443.4,485.2 L443.6,485.7 L443.6,486.2 L443.4,486.6 L442.6,488.2 L441.8,489.3 L441.0,490.4 L440.2,491.2 L439.7,491.6 L439.7,493.6 L438.9,495.0 L439.4,496.2 L439.1,496.3 L436.2,499.1 L435.4,500.1 L434.4,501.3 L432.0,503.6 L430.9,504.3 L430.4,504.0 L429.3,503.7 L428.3,503.6 L426.7,503.6 L424.8,503.8 L423.0,503.6 L420.9,502.7 L419.0,502.4 L416.9,502.8 Z"><title>Zimbabwe</title></path>
-          </svg>
-            <button class="map-marker active" style="left:97.5%;top:73.9%" data-country="mauritius" aria-label="Mauritius"></button><span class="map-label" style="left:97.5%;top:73.9%">Mauritius</span>
-            <button class="map-marker" style="left:31.1%;top:45.2%" data-country="ghana" aria-label="Ghana"></button><span class="map-label" style="left:31.1%;top:45.2%">Ghana</span>
-            <button class="map-marker" style="left:73.7%;top:52.9%" data-country="kenya" aria-label="Kenya"></button><span class="map-label" style="left:73.7%;top:52.9%">Kenya</span>
-            <button class="map-marker" style="left:69.2%;top:58.1%" data-country="rwanda" aria-label="Rwanda"></button><span class="map-label" style="left:69.2%;top:58.1%">Rwanda</span>
-            <button class="map-marker" style="left:60.0%;top:70.2%" data-country="zambia" aria-label="Zambia"></button><span class="map-label" style="left:60.0%;top:70.2%">Zambia</span>
-            <button class="map-marker" style="left:55.8%;top:79.2%" data-country="botswana" aria-label="Botswana"></button><span class="map-label" style="left:55.8%;top:79.2%">Botswana</span>
+          
+<g class="svg-market-layer" aria-label="Tomorrowland markets">
+  <g class="svg-market-marker" data-country="ghana" role="button" tabindex="0" aria-label="Ghana" transform="translate(193 291)">
+    <circle class="marker-halo" r="18"></circle><circle class="marker-core" r="10"></circle><circle class="marker-dot" r="3"></circle>
+    <text x="0" y="30" text-anchor="middle">GHANA</text>
+  </g>
+  <g class="svg-market-marker" data-country="kenya" role="button" tabindex="0" aria-label="Kenya" transform="translate(480 337)">
+    <circle class="marker-halo" r="18"></circle><circle class="marker-core" r="10"></circle><circle class="marker-dot" r="3"></circle>
+    <text x="20" y="5" text-anchor="start">KENYA</text>
+  </g>
+  <g class="svg-market-marker" data-country="rwanda" role="button" tabindex="0" aria-label="Rwanda" transform="translate(420 365)">
+    <circle class="marker-halo" r="18"></circle><circle class="marker-core" r="10"></circle><circle class="marker-dot" r="3"></circle>
+    <text x="0" y="30" text-anchor="middle">RWANDA</text>
+  </g>
+  <g class="svg-market-marker" data-country="zambia" role="button" tabindex="0" aria-label="Zambia" transform="translate(365 453)">
+    <circle class="marker-halo" r="18"></circle><circle class="marker-core" r="10"></circle><circle class="marker-dot" r="3"></circle>
+    <text x="0" y="30" text-anchor="middle">ZAMBIA</text>
+  </g>
+  <g class="svg-market-marker" data-country="botswana" role="button" tabindex="0" aria-label="Botswana" transform="translate(348 520)">
+    <circle class="marker-halo" r="18"></circle><circle class="marker-core" r="10"></circle><circle class="marker-dot" r="3"></circle>
+    <text x="0" y="30" text-anchor="middle">BOTSWANA</text>
+  </g>
+  <g class="svg-market-marker active" data-country="mauritius" role="button" tabindex="0" aria-label="Mauritius" transform="translate(610 465)">
+    <circle class="marker-halo" r="18"></circle><circle class="marker-core" r="10"></circle><circle class="marker-dot" r="3"></circle>
+    <text x="0" y="30" text-anchor="middle">MAURITIUS</text>
+  </g>
+</g>
+</svg>
+
           </div>
           <div class="map-detail"><span id="mapDetailKicker">Mauritius</span><strong id="mapDetailTitle">Capital & structure hub</strong><p id="mapDetailCopy">Governance, legal coordination, regional programme management and the interface with capital partners.</p></div>
         </div>
@@ -496,6 +536,13 @@
       <div class="memo-entry">
         <div><div class="eyebrow">Founding platform capital</div><h3>Understand the full US$500,000 proposition before expressing interest.</h3><p>The five-page memorandum explains the platform, the 12-month build, use of proceeds, targets, governance and the non-binding partnership process.</p></div>
         <button class="btn memo-open" type="button">Read the 5-page memorandum</button>
+      </div>
+      <div class="founding-compliance">
+        <div class="founding-compliance-copy">
+          <div class="compliance-mark">AML</div>
+          <div><h4>Compliance before capital moves.</h4><p>Every expression of interest is non-binding. No payment is taken online. Any contribution is considered only after eligibility review, AML/KYC verification, source-of-funds checks, internal approvals and definitive documentation.</p></div>
+        </div>
+        <button class="btn" type="button" data-apply="Commitment">Register an Expression of Interest</button>
       </div>
     </div>
   </section>
@@ -675,59 +722,7 @@
 
 <script>
 
-const donationData={
-mauritius:{name:"Mauritius",summary:"An island economy that imports most of its food, leaving small growers little room to compete on price or consistency.",problem:"Because Mauritius imports most of what it eats, small growers compete against cheaper imported produce and have little leverage to negotiate fair prices with local buyers and hotels.",mechanism:"Tomorrowland works to build shared cold storage and local aggregation points so growers can hold produce, sell in volume, and negotiate as a group rather than alone.",role:"that storage and aggregation capacity — helping a Mauritian grower sell into hospitality and retail buyers instead of settling for whatever price is offered at the farm gate."},
-kenya:{name:"Kenya",summary:"A horticulture powerhouse where smallholders still sell to informal middlemen at a fraction of market value.",problem:"Kenyan horticulture farmers frequently sell to informal middlemen because they lack the aggregation points and transport to reach structured buyers directly, losing much of the final sale price along the way.",mechanism:"Tomorrowland builds farmer aggregation points and negotiation training so cooperatives can contract directly with structured domestic and export buyers.",role:"that aggregation and negotiation training — helping a Kenyan cooperative bypass middlemen and capture more of what their produce is actually worth."},
-ghana:{name:"Ghana",summary:"A major cocoa and cashew producer where most of the processing value is captured outside the country.",problem:"Ghana grows some of the world's best cocoa and cashew, but most beans and nuts leave the country unprocessed, so the value added by roasting, grinding and packaging is captured abroad, not by the farmers who grew the crop.",mechanism:"Tomorrowland supports primary-processing training and market-linkage work so cooperatives can move up the value chain instead of only selling raw beans.",role:"that processing training — helping a Ghanaian cooperative capture a larger share of the value their crop creates, instead of exporting it raw."},
-southafrica:{name:"South Africa",summary:"A sophisticated food economy where smaller and rural producers still struggle to meet formal retail requirements.",problem:"South African retailers and formal buyers set volume, consistency and certification standards that many smaller producers can't yet meet on their own, locking them out of the country's most reliable markets.",mechanism:"Tomorrowland runs supplier-readiness support — certification, record-keeping and consistency training — that helps smaller producers qualify for formal retail and export contracts.",role:"that supplier-readiness training — helping a smaller South African producer clear the bar formal retailers require, so they can sell consistently rather than one harvest at a time."},
-morocco:{name:"Morocco",summary:"A horticulture and export hub where water scarcity threatens the reliability buyers depend on.",problem:"Morocco's export buyers depend on consistent, reliable supply, but water scarcity makes yields unpredictable for smallholders who lack efficient irrigation, putting both their income and their market access at risk.",mechanism:"Tomorrowland supports water-efficient irrigation training and equipment access so smallholders can stabilise yields even as water grows scarcer.",role:"that irrigation training and equipment access — helping a Moroccan smallholder keep yields reliable enough to hold onto an export contract."},
-nigeria:{name:"Nigeria",summary:"Africa's largest consumer market, where storage and milling gaps mean much of what's grown never reaches a buyer.",problem:"Nigeria's storage, milling and processing infrastructure hasn't kept pace with its farmers, so a large share of what's harvested spoils or is wasted before it ever reaches a buyer — a loss for the farmer and for a food-import-dependent country.",mechanism:"Tomorrowland builds storage and basic milling capacity at aggregation points so cooperatives can hold, process and sell what they grow instead of losing it after harvest.",role:"that storage and milling capacity — helping a Nigerian cooperative keep more of what it grows sellable, instead of losing it to spoilage."}
-};
-const whyCopy="Tomorrowland is not collecting payments through this page. Expressions of interest allow the team to identify suitable founding supporters, complete AML/KYC and source-of-funds checks, agree the appropriate grant or support documentation, and only then issue verified bank-transfer instructions.";
 
-window.currentDonationAmount=10000;
-window.currentDonationCountry='mauritius';
-
-function renderDonation(key){
- const d=donationData[key]; if(!d)return;
- window.currentDonationCountry=key;
- const amt=window.currentDonationAmount;
- intelCountry.textContent=d.name; intelSummary.textContent=d.summary;
- intelAmountShown.textContent='$'+amt.toLocaleString('en-US');
- beatProblem.textContent=d.problem;
- beatMechanism.textContent=d.mechanism;
- beatRole.textContent='An indicative $'+amt.toLocaleString('en-US')+' commitment can support '+d.role;
- intelOpportunity.textContent=whyCopy;
- document.querySelectorAll('.map-marker').forEach(x=>x.classList.toggle('active',x.dataset.country===key));
- document.querySelectorAll('.country.highlight').forEach(x=>x.classList.toggle('active',x.dataset.country===key));
-}
-// Legacy commitment-map click binding removed; regional map uses selectMarket().
-document.querySelectorAll('.country.highlight').forEach(x=>x.addEventListener('click',()=>renderDonation(x.dataset.country)));
-
-document.querySelectorAll('#amountPresets .intel-filter').forEach(btn=>{
- btn.addEventListener('click',()=>{
-  document.querySelectorAll('#amountPresets .intel-filter').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('customAmount').value='';
-  window.currentDonationAmount=parseInt(btn.dataset.amount,10);
-  renderDonation(window.currentDonationCountry);
- });
-});
-document.getElementById('customAmount').addEventListener('input',(e)=>{
- const v=parseInt(e.target.value,10);
- if(v>0){
-  document.querySelectorAll('#amountPresets .intel-filter').forEach(b=>b.classList.remove('active'));
-  window.currentDonationAmount=v;
-  renderDonation(window.currentDonationCountry);
- }
-});
-if(document.getElementById('intelAmountShown')) renderDonation('mauritius');
-
-// Update this figure only when a commitment has been documented internally.
-const documentedCommitted=0;
-const foundingTarget=500000;
-const oldCommittedTotal=document.getElementById('committedTotal'); if(oldCommittedTotal) oldCommittedTotal.textContent='$'+documentedCommitted.toLocaleString('en-US');
-const oldCommitmentBar=document.getElementById('commitmentBar'); if(oldCommitmentBar) oldCommitmentBar.style.width=Math.min(100,(documentedCommitted/foundingTarget)*100)+'%';
 
 function buildStack(){
   const stage=document.getElementById('stage').value;
@@ -782,7 +777,7 @@ let currentStep=0;
 
 function openApplication(type){
   document.getElementById('applicationType').value=type;
-  document.getElementById('applicationTitle').textContent=type==='Capital Partner'?'Request capital-partner access':type==='Commitment'?'Register a founding commitment':`Apply: ${type}`;
+  document.getElementById('applicationTitle').textContent=type==='Capital Partner'?'Request capital-partner access':type==='Commitment'?'Register an expression of interest':`Apply: ${type}`;
   form.classList.toggle('pledge-mode',type==='Commitment');
   document.querySelectorAll('.project-required').forEach(el=>el.required=type!=='Commitment');
   document.querySelectorAll('.pledge-required').forEach(el=>el.required=type==='Commitment');
@@ -793,12 +788,13 @@ function openApplication(type){
     form.elements['summary'].value=`Indicative blended capital pathway: ${window.currentCapitalPathway.stack}`;
   }
   if(type==='Commitment'){
-    const d=donationData[window.currentDonationCountry];
+    // The founding-support form is independent of the former donation map.
+    // Do not reference removed donationData variables, as that prevents the modal opening.
     form.elements['organisation_type'].value='Individual';
-    form.elements['app_country'].value=d?d.name:'';
-    form.elements['commitment_amount'].value=window.currentDonationAmount||'';
-    form.elements['target_geography'].value=d?d.name:'';
-    form.elements['commitment_notes'].value=d?`Indicative founding support toward: ${d.role}`:'';
+    form.elements['app_country'].value='';
+    form.elements['commitment_amount'].value='';
+    form.elements['target_geography'].value='Regional / to be discussed';
+    form.elements['commitment_notes'].value='';
   }
   const status=document.getElementById('formStatus');status.className='form-status';status.textContent='';
   currentStep=0;renderStep();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
@@ -870,12 +866,12 @@ async function prepareApplication(){
     submitButton.textContent=originalLabel;
   }
 }
-document.querySelectorAll('[data-apply]').forEach(el=>el.addEventListener('click',()=>openApplication(el.dataset.apply)));
-document.querySelector('.modal-close').addEventListener('click',closeApplication);
-modal.addEventListener('click',e=>{if(e.target===modal)closeApplication()});
+document.querySelectorAll('[data-apply]:not(.memo-eoi)').forEach(el=>el.addEventListener('click',()=>openApplication(el.dataset.apply)));
+document.querySelector('.modal-close')?.addEventListener('click',closeApplication);
+modal?.addEventListener('click',e=>{if(e.target===modal)closeApplication()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeApplication()});
-document.getElementById('prevStep').addEventListener('click',()=>{if(currentStep>0){currentStep--;renderStep()}});
-document.getElementById('nextStep').addEventListener('click',()=>{if(!validateStep())return;if(currentStep<steps.length-1){currentStep++;renderStep()}else prepareApplication()});
+document.getElementById('prevStep')?.addEventListener('click',()=>{if(currentStep>0){currentStep--;renderStep()}});
+document.getElementById('nextStep')?.addEventListener('click',()=>{if(!validateStep())return;if(currentStep<steps.length-1){currentStep++;renderStep()}else prepareApplication()});
 
 
 
@@ -893,9 +889,12 @@ function selectMarket(key){
   document.getElementById('mapDetailKicker').textContent=d[0];
   document.getElementById('mapDetailTitle').textContent=d[1];
   document.getElementById('mapDetailCopy').textContent=d[2];
-  document.querySelectorAll('.market-card,.regional-map .map-marker').forEach(el=>el.classList.toggle('active',el.dataset.country===key));
+  document.querySelectorAll('.market-card,.svg-market-marker').forEach(el=>el.classList.toggle('active',el.dataset.country===key));
 }
-document.querySelectorAll('.market-card,.regional-map .map-marker').forEach(el=>el.addEventListener('click',()=>selectMarket(el.dataset.country)));
+document.querySelectorAll('.market-card,.svg-market-marker').forEach(el=>{
+  el.addEventListener('click',()=>selectMarket(el.dataset.country));
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectMarket(el.dataset.country)}});
+});
 
 // Five-page memorandum reader
 const memoModal=document.getElementById('memoModal');
@@ -905,11 +904,11 @@ function showMemoPage(i){memoIndex=Math.max(0,Math.min(memoPages.length-1,i));me
 function openMemo(){memoModal.classList.add('open');memoModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';showMemoPage(0)}
 function closeMemo(){memoModal.classList.remove('open');memoModal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 document.querySelectorAll('.memo-open').forEach(b=>b.addEventListener('click',openMemo));
-document.querySelector('.memo-close').addEventListener('click',closeMemo);
-document.querySelector('.memo-prev').addEventListener('click',()=>showMemoPage(memoIndex-1));
-document.querySelector('.memo-next').addEventListener('click',()=>showMemoPage(memoIndex+1));
-memoModal.addEventListener('click',e=>{if(e.target===memoModal)closeMemo()});
-document.querySelector('.memo-eoi').addEventListener('click',()=>{closeMemo();openApplication('Commitment')});
+document.querySelector('.memo-close')?.addEventListener('click',closeMemo);
+document.querySelector('.memo-prev')?.addEventListener('click',()=>showMemoPage(memoIndex-1));
+document.querySelector('.memo-next')?.addEventListener('click',()=>showMemoPage(memoIndex+1));
+memoModal?.addEventListener('click',e=>{if(e.target===memoModal)closeMemo()});
+document.querySelector('.memo-eoi')?.addEventListener('click',()=>{closeMemo();window.setTimeout(()=>openApplication('Commitment'),0)});
 
 </script>
 </body>
