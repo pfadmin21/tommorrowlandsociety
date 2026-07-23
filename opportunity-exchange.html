@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tomorrowland Opportunity Exchange — Institutional Preview</title>
+<title>Tomorrowland Opportunity Exchange — Private Institutional Preview</title>
 <meta name="description" content="A demonstration of Tomorrowland's cooperative investment preparation, de-risking and capital mobilisation platform.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,14 @@ h1,h2,h3,h4{font-family:"Instrument Serif",serif;font-weight:400;line-height:1;l
 .access-card{border:1px solid rgba(255,255,255,.32);background:rgba(7,19,14,.7);backdrop-filter:blur(18px);padding:36px}
 .access-card h2{font-size:2.5rem}
 .access-card>p{font-size:.82rem;color:rgba(255,255,255,.62);margin:12px 0 26px}
+.interest-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}
+.interest-options label{display:flex;align-items:flex-start;gap:9px;border:1px solid rgba(255,255,255,.18);padding:10px 11px;font-size:.68rem;color:rgba(255,255,255,.78);text-transform:none;letter-spacing:0;line-height:1.4}
+.interest-options input{width:auto;margin-top:2px;accent-color:var(--bronze)}
+.access-card textarea{width:100%;min-height:105px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06);color:white;padding:13px;resize:vertical;outline:none}
+.access-card textarea:focus{border-color:#d7b285}
+.access-status{display:none;margin-top:16px;padding:14px;border:1px solid rgba(255,255,255,.24);font-size:.74rem;line-height:1.55}
+.access-status.show{display:block}.access-status.success{background:rgba(76,122,92,.2);border-color:rgba(151,205,168,.45)}.access-status.error{background:rgba(155,74,59,.22);border-color:rgba(219,143,128,.45)}
+@media(max-width:620px){.interest-options{grid-template-columns:1fr}}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field{display:grid;gap:7px}
 .field.full{grid-column:1/-1}
@@ -356,7 +364,7 @@ body::before{
 </div>
         <div><strong>Tomorrowland Cooperative Society</strong><span class="mono" style="display:block;color:rgba(255,255,255,.52);margin-top:4px">Founded in Mauritius · 2016</span></div>
       </div>
-      <div class="mono" style="color:#d7b285">Opportunity Exchange · Institutional Preview</div>
+      <div class="mono" style="color:#d7b285">Opportunity Exchange · Private Institutional Preview</div>
       <h1>Capital prepared.<br><em>Risk understood.</em></h1>
       <p class="access-copy">Explore a working demonstration of how Tomorrowland prepares cooperative opportunities, structures de-risking mechanisms, models investor returns and converts measurable impact into an institutionally credible pipeline.</p>
       <div class="access-proof">
@@ -365,25 +373,47 @@ body::before{
         <div><strong>231</strong><span class="mono">Unique indicators</span></div>
       </div>
     </div>
-    <form class="access-card" id="accessForm">
-      <div class="mono" style="color:#d7b285">Request preview access</div>
-      <h2>Enter the platform.</h2>
-      <p>For DFIs, foundations, family offices, investors, corporates and public institutions.</p>
+    <form class="access-card" id="accessForm" action="https://formspree.io/f/mrenlwpg" method="POST">
+      <input type="hidden" name="_subject" value="Tomorrowland — Institutional Preview Access Request">
+      <input type="hidden" name="request_type" value="Private institutional preview access">
+      <div class="mono" style="color:#d7b285">Request institutional access</div>
+      <h2>Access is reviewed individually.</h2>
+      <p>The private preview is available to selected investors, DFIs, foundations, family offices, corporates, public institutions and strategic partners.</p>
       <div class="form-grid">
-        <div class="field"><label>Full name</label><input required id="name" placeholder="Your name"></div>
-        <div class="field"><label>Position</label><input required placeholder="Your role"></div>
-        <div class="field full"><label>Organisation</label><input required id="org" placeholder="Organisation name"></div>
-        <div class="field full"><label>Work email</label><input required type="email" id="email" placeholder="name@organisation.com"></div>
-        <div class="field full"><label>Organisation type</label>
-          <select required>
+        <div class="field"><label for="name">Full name</label><input required id="name" name="name" placeholder="Your name"></div>
+        <div class="field"><label for="position">Position</label><input required id="position" name="position" placeholder="Your role"></div>
+        <div class="field full"><label for="org">Organisation</label><input required id="org" name="organisation" placeholder="Organisation name"></div>
+        <div class="field"><label for="email">Work email</label><input required type="email" id="email" name="email" placeholder="name@organisation.com"></div>
+        <div class="field"><label for="country">Country</label><input required id="country" name="country" placeholder="Country of operation"></div>
+        <div class="field full"><label for="organisationType">Organisation type</label>
+          <select required id="organisationType" name="organisation_type">
             <option value="">Select one</option><option>Development Finance Institution</option><option>Philanthropic Foundation</option>
             <option>Family Office</option><option>Institutional Investor</option><option>Impact Fund</option><option>Corporate</option>
-            <option>Government</option><option>Technical Partner</option><option>Other</option>
+            <option>Government or public institution</option><option>Technical Partner</option><option>Off-taker or buyer</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field full"><label>Specific areas of interest</label>
+          <div class="interest-options">
+            <label><input type="checkbox" name="interest" value="Curated project pipeline"> Curated project pipeline</label>
+            <label><input type="checkbox" name="interest" value="Blended-finance structures"> Blended-finance structures</label>
+            <label><input type="checkbox" name="interest" value="First-loss or guarantees"> First-loss or guarantees</label>
+            <label><input type="checkbox" name="interest" value="Debt or co-investment"> Debt or co-investment</label>
+            <label><input type="checkbox" name="interest" value="Grant or technical assistance"> Grant or technical assistance</label>
+            <label><input type="checkbox" name="interest" value="Off-take or market partnership"> Off-take or market partnership</label>
+            <label><input type="checkbox" name="interest" value="Technology or implementation partnership"> Technology or implementation partnership</label>
+            <label><input type="checkbox" name="interest" value="Regional programme collaboration"> Regional programme collaboration</label>
+          </div>
+        </div>
+        <div class="field full"><label for="mandate">Mandate or intended collaboration</label><textarea required id="mandate" name="mandate" placeholder="Briefly describe your organisation’s mandate, investment focus or intended area of collaboration."></textarea></div>
+        <div class="field full"><label for="commitment">Indicative mandate or ticket size</label>
+          <select id="commitment" name="indicative_commitment">
+            <option value="">Prefer not to state</option><option>Under USD 100,000</option><option>USD 100,000–250,000</option><option>USD 250,000–500,000</option><option>USD 500,000–1 million</option><option>Above USD 1 million</option><option>Non-financial strategic partnership</option>
           </select>
         </div>
       </div>
-      <button class="access-submit" type="submit">Access institutional preview →</button>
-      <p class="access-note">Demonstration data only. Access does not constitute an offer, solicitation or investment recommendation.</p>
+      <button class="access-submit" id="accessSubmit" type="submit">Request institutional access →</button>
+      <div class="access-status" id="accessStatus" role="status" aria-live="polite"></div>
+      <p class="access-note">Submission does not guarantee access or create an advisory relationship. Approved applicants will receive a private access link by email. Access may be restricted or withdrawn at Tomorrowland’s discretion.</p>
     </form>
   </div>
 </section>
@@ -732,19 +762,45 @@ function initials(name){return name.split(/\s+/).slice(0,2).map(x=>x[0]||"").joi
 function money(n){return new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(n)}
 function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2400)}
 
-document.getElementById("accessForm").addEventListener("submit",e=>{
+document.getElementById("accessForm").addEventListener("submit",async e=>{
  e.preventDefault();
- const name=document.getElementById("name").value.trim(),org=document.getElementById("org").value.trim(),email=document.getElementById("email").value.trim();
- localStorage.setItem("tle_preview",JSON.stringify({name,org,email}));
- document.getElementById("welcomeName").textContent=name;
- document.getElementById("welcomeOrg").textContent=org;
- document.getElementById("avatar").textContent=initials(name);
- document.getElementById("accessScreen").classList.add("hidden");
- document.getElementById("app").classList.remove("hidden");
- window.scrollTo(0,0);
+ const form=e.currentTarget;
+ const status=document.getElementById("accessStatus");
+ const button=document.getElementById("accessSubmit");
+ const selected=[...form.querySelectorAll('input[name="interest"]:checked')];
+ status.className="access-status";
+ status.textContent="";
+ if(!selected.length){
+   status.textContent="Please select at least one specific area of interest.";
+   status.classList.add("show","error");
+   return;
+ }
+ const original=button.textContent;
+ button.disabled=true;
+ button.textContent="Submitting request…";
+ try{
+   const response=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{Accept:"application/json"}});
+   if(!response.ok){
+     const result=await response.json().catch(()=>({}));
+     throw new Error(result.errors?.map(x=>x.message).join(" ")||"The request could not be submitted. Please try again.");
+   }
+   status.textContent="Thank you. Your request has been received for review. Approved applicants will receive a private access link at their professional email address.";
+   status.classList.add("show","success");
+   form.reset();
+ }catch(error){
+   status.textContent=error.message||"The request could not be submitted. Please try again.";
+   status.classList.add("show","error");
+ }finally{
+   button.disabled=false;
+   button.textContent=original;
+ }
 });
-const saved=localStorage.getItem("tle_preview");
-if(saved){try{const x=JSON.parse(saved);document.getElementById("name").value=x.name||"";document.getElementById("org").value=x.org||"";document.getElementById("email").value=x.email||""}catch(e){}}
+
+/* SECURITY NOTE:
+   This page now collects access requests but does not grant browser-side access.
+   Deploy the dashboard route behind Cloudflare Access, Supabase Auth, or an equivalent
+   server-side access-control layer. Do not restore a JavaScript-only password gate.
+*/
 
 function activate(view){
  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
