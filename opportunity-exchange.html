@@ -48,8 +48,52 @@ h1,h2,h3,h4{font-family:"Instrument Serif",serif;font-weight:400;line-height:1;l
 .access-card h2{font-size:2.5rem}
 .access-card>p{font-size:.82rem;color:rgba(255,255,255,.62);margin:10px 0 20px}
 .interest-options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
-.interest-options label{display:flex;align-items:flex-start;gap:9px;border:1px solid rgba(255,255,255,.18);padding:8px 10px;font-size:.66rem;color:rgba(255,255,255,.78);text-transform:none;letter-spacing:0;line-height:1.35}
-.interest-options input{width:auto;margin-top:2px;accent-color:var(--bronze)}
+.interest-options label{
+  display:grid;
+  grid-template-columns:18px 1fr;
+  align-items:start;
+  gap:11px;
+  min-height:58px;
+  border:1px solid rgba(255,255,255,.18);
+  padding:10px 12px;
+  font-size:.66rem;
+  color:rgba(255,255,255,.78);
+  text-transform:none;
+  letter-spacing:0;
+  line-height:1.35;
+  cursor:pointer;
+}
+.interest-options input[type="checkbox"]{
+  appearance:none;
+  -webkit-appearance:none;
+  width:16px;
+  height:16px;
+  margin:2px 0 0;
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:0;
+  background:transparent;
+  display:grid;
+  place-content:center;
+  cursor:pointer;
+}
+.interest-options input[type="checkbox"]::before{
+  content:"";
+  width:8px;
+  height:8px;
+  transform:scale(0);
+  transition:transform .14s ease;
+  background:var(--bronze);
+}
+.interest-options input[type="checkbox"]:checked::before{transform:scale(1)}
+.interest-options input[type="checkbox"]:focus-visible{
+  outline:2px solid var(--bronze);
+  outline-offset:3px;
+}
+.interest-options label:has(input:checked){
+  border-color:rgba(217,178,133,.72);
+  background:rgba(169,119,67,.10);
+  color:white;
+}
 .access-card textarea{width:100%;min-height:78px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06);color:white;padding:13px;resize:vertical;outline:none}
 .access-card textarea:focus{border-color:#d7b285}
 .access-status{display:none;margin-top:16px;padding:14px;border:1px solid rgba(255,255,255,.24);font-size:.74rem;line-height:1.55}
